@@ -14,8 +14,9 @@ results_path: str = '../experiments/ifor/' + datetime.now().strftime('%Y_%m_%d_%
 # datasets: list[str] = ['Annthyroid.csv', 'Arrhythmia.csv', 'Breastw.csv', 'ForestCover.csv', 'hbk.csv', 'Http.csv',
 #                        'Ionosphere.csv', 'Mammography.csv', 'Mulcross.csv', 'Pendigits.csv', 'Pima.csv',
 #                        'Satellite.csv', 'Shuttle.csv', 'Smtp.csv', 'wood.csv']
-datasets: list[str] = ['Arrhythmia.csv', 'Breastw.csv', 'hbk.csv', 'Ionosphere.csv', 'Pima.csv', 'wood.csv']
-branching_factors: list[int] = [2, 4, 8, 16, 32]
+datasets: list[str] = ['Annthyroid.csv', 'Arrhythmia.csv', 'Breastw.csv', 'hbk.csv', 'Ionosphere.csv','Mammography.csv',
+                       'Pendigits.csv', 'Pima.csv', 'Satellite.csv', 'Shuttle.csv', 'Smtp.csv', 'wood.csv']
+branching_factors: list[int] = [2, 4, 8, 16, 32, 64]
 metrics: list[str] = ['tanimoto', 'ruzicka', 'euclidean', 'cityblock', 'cosine', 'hamming', 'jaccard']
 ivor_params: dict = {'iforest_type': 'voronoiiforest',
                      'num_trees': 100,
