@@ -1,12 +1,12 @@
 from matplotlib import pyplot as plt
 from numpy import load, ndarray
 
-results_path: str = '../experiments/ifor/2023_01_27_140738/'
-# datasets: list[str] = ['Annthyroid.csv', 'Arrhythmia.csv', 'Breastw.csv', 'ForestCover.csv', 'hbk.csv', 'Http.csv',
-#                        'Ionosphere.csv', 'Mammography.csv', 'Mulcross.csv', 'Pendigits.csv', 'Pima.csv',
-#                        'Satellite.csv', 'Shuttle.csv', 'Smtp.csv', 'wood.csv']
-datasets: list[str] = ['Arrhythmia.csv', 'Breastw.csv', 'hbk.csv', 'Ionosphere.csv', 'Pima.csv', 'wood.csv']
-branching_factors: list[int] = [2, 4, 8, 16, 32]
+results_path: str = '../experiments/ifor/2023_01_30_150643/'
+# datasets: list[str] = ['Annthyroid', 'Arrhythmia', 'Breastw', 'ForestCover', 'hbk', 'Http', 'Ionosphere', 'Mammography',
+#                        'Mulcross', 'Pendigits', 'Pima', 'Satellite', 'Shuttle', 'Smtp', 'wood']
+datasets: list[str] = ['Annthyroid', 'Arrhythmia', 'Breastw', 'hbk', 'Ionosphere','Mammography',
+                       'Pendigits', 'Pima', 'Satellite', 'Shuttle', 'Smtp', 'wood']
+branching_factors: list[int] = [2, 4, 8, 16, 32, 64]
 metrics: list[str] = ['tanimoto', 'ruzicka', 'euclidean', 'cityblock', 'cosine', 'hamming', 'jaccard']
 
 with open(results_path + 'roc_aucs_ifor.npy', 'rb') as f:
@@ -32,7 +32,7 @@ for i, dataset in enumerate(datasets):
                     lw=2, label=metric)
     ax.errorbar([2], [roc_aucs_ifor[:, i].mean(axis=0)], yerr=[roc_aucs_ifor[:, i].std(axis=0)], lw=2,
                 label='ifor (Manhattan LSH)')
-    plt.ylim([0.5, 1.0])
+    plt.ylim([0, 1.0])
     plt.xlabel('Branching factor')
     plt.ylabel('ROC AUC')
     plt.xscale('log')
