@@ -11,13 +11,12 @@ from time import time
 # region Define parameters
 datasets_folder: str = '../datasets/ifor/'
 results_path: str = '../experiments/ifor/' + datetime.now().strftime('%Y_%m_%d_%H%M%S') + '/'
-# datasets: list[str] = ['Annthyroid.csv', 'Arrhythmia.csv', 'Breastw.csv', 'ForestCover.csv', 'hbk.csv', 'Http.csv',
-#                        'Ionosphere.csv', 'Mammography.csv', 'Mulcross.csv', 'Pendigits.csv', 'Pima.csv',
-#                        'Satellite.csv', 'Shuttle.csv', 'Smtp.csv', 'wood.csv']
-datasets: list[str] = ['Annthyroid.csv', 'Arrhythmia.csv', 'Breastw.csv', 'hbk.csv', 'Ionosphere.csv','Mammography.csv',
-                       'Pendigits.csv', 'Pima.csv', 'Satellite.csv', 'Shuttle.csv', 'Smtp.csv', 'wood.csv']
-branching_factors: list[int] = [2, 4, 8, 16, 32, 64]
-metrics: list[str] = ['tanimoto', 'ruzicka', 'euclidean', 'cityblock', 'cosine', 'hamming', 'jaccard']
+datasets: list[str] = ['Annthyroid.csv', 'Arrhythmia.csv', 'Breastw.csv', 'ForestCover.csv', 'hbk.csv', 'Http.csv',
+                       'Ionosphere.csv', 'Mammography.csv', 'Mulcross.csv', 'Pendigits.csv', 'Pima.csv',
+                       'Satellite.csv', 'Shuttle.csv', 'Smtp.csv', 'wood.csv']
+branching_factors: list[int] = [2, 4, 8, 16, 32]
+metrics: list[str] = ['cityblock', 'euclidean', 'seuclidean', 'mahalanobis', 'cosine', 'correlation', 'hamming',
+                      'jaccard', 'tanimoto', 'ruzicka', 'braycurtis', 'canberra', 'chebyshev']
 ivor_params: dict = {'iforest_type': 'voronoiiforest',
                      'num_trees': 100,
                      'max_samples': 256,
@@ -180,4 +179,3 @@ for iteration in range(n_iterations):
                     save(f, train_time_ivor)
                 with open(results_path + 'test_time_ivor.npy', 'wb') as f:
                     save(f, test_time_ivor)
-# endregion
