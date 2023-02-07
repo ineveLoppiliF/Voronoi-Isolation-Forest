@@ -1,13 +1,13 @@
 from matplotlib import pyplot as plt
 from numpy import load, ndarray
 
-results_path: str = '../experiments/ifor/2023_01_30_150643/'
-# datasets: list[str] = ['Annthyroid', 'Arrhythmia', 'Breastw', 'ForestCover', 'hbk', 'Http', 'Ionosphere', 'Mammography',
-#                        'Mulcross', 'Pendigits', 'Pima', 'Satellite', 'Shuttle', 'Smtp', 'wood']
-datasets: list[str] = ['Annthyroid', 'Arrhythmia', 'Breastw', 'hbk', 'Ionosphere','Mammography',
-                       'Pendigits', 'Pima', 'Satellite', 'Shuttle', 'Smtp', 'wood']
-branching_factors: list[int] = [2, 4, 8, 16, 32, 64]
-metrics: list[str] = ['tanimoto', 'ruzicka', 'euclidean', 'cityblock', 'cosine', 'hamming', 'jaccard']
+results_path: str = '../experiments/ifor/2023_02_03_164920/'
+datasets: list[str] = ['Annthyroid.csv', 'Arrhythmia.csv', 'Breastw.csv', 'ForestCover.csv', 'hbk.csv', 'Http.csv',
+                       'Ionosphere.csv', 'Mammography.csv', 'Mulcross.csv', 'Pendigits.csv', 'Pima.csv',
+                       'Satellite.csv', 'Shuttle.csv', 'Smtp.csv', 'wood.csv']
+branching_factors: list[int] = [2, 4, 8, 16, 32]
+metrics: list[str] = ['cityblock', 'euclidean', 'seuclidean', 'mahalanobis', 'cosine', 'correlation', 'hamming',
+                      'jaccard', 'tanimoto', 'ruzicka', 'braycurtis', 'canberra', 'chebyshev']
 
 with open(results_path + 'roc_aucs_ifor.npy', 'rb') as f:
     roc_aucs_ifor: ndarray = load(f)
